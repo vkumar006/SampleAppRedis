@@ -8,6 +8,7 @@ import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.util.ObjectUtils;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 @RestController
 @RequestMapping("/product")
@@ -32,6 +33,7 @@ public class ProductController {
     public List<Product> getAllProduct(){
         return repo.findAll();
     }
+
     @GetMapping("/{id}")
     @Cacheable(key = "#id", value = "Product")//, unless = "#result.price > 1000"
     public String findProduct(@PathVariable int id){

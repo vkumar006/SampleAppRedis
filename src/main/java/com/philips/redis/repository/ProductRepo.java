@@ -19,7 +19,8 @@ public class ProductRepo {
        return redisTemplate.opsForHash().values(HASH_KEY);
     }
     public Product findProductById(int id){
-        System.out.println("called findProductById from DB");
+        System.out.println("called findProductById from DB"+id);
+
         return (Product) redisTemplate.opsForHash().get(HASH_KEY,id);
     }
 

@@ -19,4 +19,6 @@ public class Product implements Serializable {
     private int qty;
     private long price;
 
+
+
 }
